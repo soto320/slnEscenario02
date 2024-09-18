@@ -14,38 +14,48 @@ namespace Controller
     public class ActivoFijoController
     {
 
-        private List<ActivoFijo> listaActivosFijos;
+        private List<ActivoFijo> ListaActivoFijo;
+        private readonly string FilePath = "listaActivosFijos.xml";
 
         public ActivoFijoController()
         {
 
-            this.listaActivosFijos = new List<ActivoFijo>();
+            this.CargarActivoFijo();
+        }
+        private void CargarActivoFijo() {
+            if (File.Exists(FilePath))
+            {
+                this.ListaActivoFijo= DeserializarListaActivosFijos();
+            }
+            else
+            {
+                // Si el archivo no existe, devuelve una lista vacía
+                this.ListaActivoFijo=new List<ActivoFijo>();
+            }
         }
 
         public void CrearActivoFijo(string codigo, string nombre, double precio, string marca, string proveedor,string ubicacion, int vidaUtil, int numExistente)
         {
-            ActivoFijo activo = new ActivoFijo.ActivoFijoBuilder(codigo, nombre, precio)
+
+
+            ActivoFijo activo = new ActivoFijoBuilder(codigo, nombre, precio)
                 .ConMarca(marca)
                 .ConProveedor(proveedor)
                 .ConUbicacion(ubicacion)
                 .ConVidaUtilAños(vidaUtil)
                 .ConNumeroExistentes(numExistente)
                 .Build();
-            listaActivosFijos.Add(activo);
+            ListaActivoFijo.Add(activo);
         }
 
-        public void SerializarListaActivosFijos(string filePath)
+        public void SerializarListaActivosFijos()
         {
             try
             {
-                var item = DeserializarListaActivosFijos(filePath);
-                if (item.Count>0) {
-                    listaActivosFijos.AddRange(item);  
-                }
                 DataContractSerializer serializer = new DataContractSerializer(typeof(List<ActivoFijo>));
-                using (FileStream stream = new FileStream(filePath, FileMode.Create))
+                using (FileStream stream = new FileStream(FilePath, FileMode.Create))
                 {
-                    serializer.WriteObject(stream, listaActivosFijos);
+                    serializer.WriteObject(stream, ListaActivoFijo);
                 }
                 Debug.Write("Lista de activos fijos serializada correctamente a XML.");
             }
@@ -55,15 +65,15 @@ namespace Controller
             }
         }
 
-        public List<ActivoFijo> DeserializarListaActivosFijos(string filePath)
+        public List<ActivoFijo> DeserializarListaActivosFijos()
         {
             try
             {
                 DataContractSerializer serializer = new DataContractSerializer(typeof(List<ActivoFijo>));
-                using (FileStream stream = new FileStream(filePath, FileMode.Open))
+                using (FileStream stream = new FileStream(FilePath, FileMode.Open))
                 {
                     Debug.Write("Lista de activos fijos deserializada correctamente desde XML.");
-                    return listaActivosFijos = (List<ActivoFijo>)serializer.ReadObject(stream);
+                    return ListaActivoFijo = (List<ActivoFijo>)serializer.ReadObject(stream);
                 }
                
                
@@ -71,7 +81,7 @@ namespace Controller
             catch (Exception ex)
             {
                 Debug.Write($"Error al deserializar: {ex.Message}");
-                return null;
+                return new List<ActivoFijo>();
             }
         }
     }

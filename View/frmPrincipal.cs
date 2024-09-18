@@ -7,7 +7,6 @@ namespace View
     public partial class frmPrincipal : Form
     {
         private readonly ActivoFijoController Controlador;
-        private readonly string FilePath = "listaActivosFijos.xml";
         public frmPrincipal()
         {
             InitializeComponent();
@@ -18,12 +17,7 @@ namespace View
         {
             try
             {
-                var listaActivosFijos = Controlador.DeserializarListaActivosFijos(FilePath);
-                /* if (listaActivosFijos.Count() == 0)
-                 {
-                     Controlador.CrearActivoFijo("C-001", "Computador", 1200.00, "Apple", "Proveedor XYZ","S/U",2,3);
-                     Controlador.SerializarListaActivosFijos(filePath);
-                 }*/
+                var listaActivosFijos = Controlador.DeserializarListaActivosFijos();
                 if (listaActivosFijos.Count == 0)
                 {
                     Debug.Write("No hay activos fijos registrados.");

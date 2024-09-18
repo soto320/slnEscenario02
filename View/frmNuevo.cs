@@ -15,7 +15,6 @@ namespace View
     public partial class frmNuevo : Form
     {
         private readonly ActivoFijoController Controlador;
-        private readonly string FilePath = "listaActivosFijos.xml";
         public frmNuevo()
         {
             InitializeComponent();
@@ -59,7 +58,7 @@ namespace View
             try
             {
                 Controlador.CrearActivoFijo(this.txtCodigo.Text, this.txtNombre.Text, this.ParseDouble(this.txtPrecio.Text, "Precio"), this.txtMarca.Text, this.txtProveedor.Text, this.txtUbicacion.Text, this.ParseInt(this.txtVidaUtil.Text, "Vida Util"), this.ParseInt(this.txtNumeroExistente.Text, "Num. Existentes"));
-                Controlador.SerializarListaActivosFijos(FilePath);
+                Controlador.SerializarListaActivosFijos();
             }
             catch (Exception e)
             {

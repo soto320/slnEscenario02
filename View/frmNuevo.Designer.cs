@@ -37,7 +37,7 @@
             lblProveedor = new Label();
             lblNumeroExistentes = new Label();
             lblVidaUtil = new Label();
-            txtUbicacion = new Label();
+            lblUbicacion = new Label();
             txtCodigo = new TextBox();
             txtNombre = new TextBox();
             txtPrecio = new TextBox();
@@ -45,7 +45,7 @@
             txtProveedor = new TextBox();
             txtNumeroExistente = new TextBox();
             txtVidaUtil = new TextBox();
-            textBox8 = new TextBox();
+            txtUbicacion = new TextBox();
             lblObligatorio = new Label();
             label1 = new Label();
             label2 = new Label();
@@ -135,14 +135,14 @@
             lblVidaUtil.TabIndex = 2;
             lblVidaUtil.Text = "Vida Util:";
             // 
-            // txtUbicacion
+            // lblUbicacion
             // 
-            txtUbicacion.AutoSize = true;
-            txtUbicacion.Location = new Point(48, 245);
-            txtUbicacion.Name = "txtUbicacion";
-            txtUbicacion.Size = new Size(63, 15);
-            txtUbicacion.TabIndex = 2;
-            txtUbicacion.Text = "Ubicacion:";
+            lblUbicacion.AutoSize = true;
+            lblUbicacion.Location = new Point(48, 245);
+            lblUbicacion.Name = "lblUbicacion";
+            lblUbicacion.Size = new Size(63, 15);
+            lblUbicacion.TabIndex = 2;
+            lblUbicacion.Text = "Ubicacion:";
             // 
             // txtCodigo
             // 
@@ -200,13 +200,13 @@
             txtVidaUtil.Size = new Size(187, 23);
             txtVidaUtil.TabIndex = 3;
             // 
-            // textBox8
+            // txtUbicacion
             // 
-            textBox8.Location = new Point(115, 237);
-            textBox8.Name = "textBox8";
-            textBox8.PlaceholderText = "Bodega";
-            textBox8.Size = new Size(187, 23);
-            textBox8.TabIndex = 3;
+            txtUbicacion.Location = new Point(115, 237);
+            txtUbicacion.Name = "txtUbicacion";
+            txtUbicacion.PlaceholderText = "Bodega";
+            txtUbicacion.Size = new Size(187, 23);
+            txtUbicacion.TabIndex = 3;
             // 
             // lblObligatorio
             // 
@@ -244,7 +244,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(lblObligatorio);
-            Controls.Add(textBox8);
+            Controls.Add(txtUbicacion);
             Controls.Add(txtVidaUtil);
             Controls.Add(txtNumeroExistente);
             Controls.Add(txtProveedor);
@@ -252,7 +252,7 @@
             Controls.Add(txtPrecio);
             Controls.Add(txtNombre);
             Controls.Add(txtCodigo);
-            Controls.Add(txtUbicacion);
+            Controls.Add(lblUbicacion);
             Controls.Add(lblVidaUtil);
             Controls.Add(lblNumeroExistentes);
             Controls.Add(lblProveedor);
@@ -281,7 +281,7 @@
         private Label lblProveedor;
         private Label lblNumeroExistentes;
         private Label lblVidaUtil;
-        private Label txtUbicacion;
+        private Label lblUbicacion;
         private TextBox txtCodigo;
         private TextBox txtNombre;
         private TextBox txtPrecio;
@@ -289,7 +289,7 @@
         private TextBox txtProveedor;
         private TextBox txtNumeroExistente;
         private TextBox txtVidaUtil;
-        private TextBox textBox8;
+        private TextBox txtUbicacion;
         private Label lblObligatorio;
         private Label label1;
         private Label label2;
