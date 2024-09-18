@@ -63,7 +63,7 @@ namespace View
             catch (Exception e)
             {
 
-                MessageBox.Show($"Error: {e}");
+                MessageBox.Show($"Error: {e.Message}");
             }
         }
 

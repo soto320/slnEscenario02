@@ -25,7 +25,8 @@ namespace Controller
         private void CargarActivoFijo() {
             if (File.Exists(FilePath))
             {
-                this.ListaActivoFijo= DeserializarListaActivosFijos();
+                this.ListaActivoFijo = new List<ActivoFijo>();
+               // this.ListaActivoFijo= DeserializarListaActivosFijos();
             }
             else
             {
@@ -36,8 +37,22 @@ namespace Controller
 
         public void CrearActivoFijo(string codigo, string nombre, double precio, string marca, string proveedor,string ubicacion, int vidaUtil, int numExistente)
         {
+            if (string.IsNullOrWhiteSpace(codigo))
+            {
+                throw new ArgumentException("El código no puede ser nulo o vacío.");
+            }
 
+            // Validación para que el nombre no sea nulo o vacío
+            if (string.IsNullOrWhiteSpace(nombre))
+            {
+                throw new ArgumentException("El nombre no puede ser nulo o vacío.");
+            }
 
+            // Validación para que el precio sea mayor que cero
+            if (precio <= 0)
+            {
+                throw new ArgumentException("El precio debe ser mayor que cero.");
+            }
             ActivoFijo activo = new ActivoFijoBuilder(codigo, nombre, precio)
                 .ConMarca(marca)
                 .ConProveedor(proveedor)
