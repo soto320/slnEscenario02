@@ -38,6 +38,10 @@ namespace Controller
         {
             try
             {
+                var item = DeserializarListaActivosFijos(filePath);
+                if (item.Count>0) {
+                    listaActivosFijos.AddRange(item);  
+                }
                 DataContractSerializer serializer = new DataContractSerializer(typeof(List<ActivoFijo>));
                 using (FileStream stream = new FileStream(filePath, FileMode.Create))
                 {

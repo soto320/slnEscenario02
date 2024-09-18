@@ -109,52 +109,5 @@ namespace Model
                 return new ActivoFijo(this);
             }
         }
-
-        public static void Serializar(string filePath, ActivoFijo activoFijo)
-        {
-            /* IFormatter formatter = new BinaryFormatter();
-             using (Stream stream = new FileStream(filePath, FileMode.Create, FileAccess.Write))
-             {
-                 formatter.Serialize(stream, activoFijo);
-             }*/
-            try
-            {
-                DataContractSerializer serializer = new DataContractSerializer(typeof(List<ActivoFijo>));
-                using (FileStream stream = new FileStream(filePath, FileMode.Create))
-                {
-                    serializer.WriteObject(stream, activoFijo);
-                }
-                Debug.Write("Lista de activos fijos serializada correctamente a XML.");
-            }
-            catch (Exception ex)
-            {
-                Debug.Write($"Error al serializar: {ex.Message}");
-            }
-        }
-
-        public static ActivoFijo Deserializar(string filePath)
-        {
-            /*IFormatter formatter = new BinaryFormatter();
-            using (Stream stream = new FileStream(filePath, FileMode.Open, FileAccess.Read))
-            {
-                return (ActivoFijo)formatter.Deserialize(stream);
-            }*/
-            try
-            {
-                DataContractSerializer serializer = new DataContractSerializer(typeof(List<ActivoFijo>));
-                using (FileStream stream = new FileStream(filePath, FileMode.Open))
-                {
-                    Debug.Write("Lista de activos fijos deserializada correctamente desde XML.");
-                   return  (ActivoFijo)serializer.ReadObject(stream);
-                }
-
-
-            }
-            catch (Exception ex)
-            {
-                Debug.Write($"Error al deserializar: {ex.Message}");
-                return null;
-            }
-        }
     }
 }
