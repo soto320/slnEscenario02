@@ -49,7 +49,7 @@ namespace View
             catch (Exception )
             {
 
-                throw new Exception($"Este campo admite solo enteros {campo}!");
+                throw new Exception($"Este campo admite solo decimales  {campo}!");
             }
             return result;
         }

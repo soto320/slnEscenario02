@@ -146,6 +146,7 @@
             // 
             // txtCodigo
             // 
+            txtCodigo.CharacterCasing = CharacterCasing.Upper;
             txtCodigo.Location = new Point(115, 6);
             txtCodigo.Name = "txtCodigo";
             txtCodigo.PlaceholderText = "C-012";
@@ -154,6 +155,7 @@
             // 
             // txtNombre
             // 
+            txtNombre.CharacterCasing = CharacterCasing.Upper;
             txtNombre.Location = new Point(115, 35);
             txtNombre.Name = "txtNombre";
             txtNombre.PlaceholderText = "Computador";
@@ -170,6 +172,7 @@
             // 
             // txtMarca
             // 
+            txtMarca.CharacterCasing = CharacterCasing.Upper;
             txtMarca.Location = new Point(115, 96);
             txtMarca.Name = "txtMarca";
             txtMarca.PlaceholderText = "Apple";
@@ -178,6 +181,7 @@
             // 
             // txtProveedor
             // 
+            txtProveedor.CharacterCasing = CharacterCasing.Upper;
             txtProveedor.Location = new Point(115, 132);
             txtProveedor.Name = "txtProveedor";
             txtProveedor.PlaceholderText = "Proveedor XYZ";
@@ -202,6 +206,7 @@
             // 
             // txtUbicacion
             // 
+            txtUbicacion.CharacterCasing = CharacterCasing.Upper;
             txtUbicacion.Location = new Point(115, 237);
             txtUbicacion.Name = "txtUbicacion";
             txtUbicacion.PlaceholderText = "Bodega";

@@ -25,8 +25,8 @@ namespace Controller
         private void CargarActivoFijo() {
             if (File.Exists(FilePath))
             {
-                this.ListaActivoFijo = new List<ActivoFijo>();
-               // this.ListaActivoFijo= DeserializarListaActivosFijos();
+                //this.ListaActivoFijo = new List<ActivoFijo>();
+                this.ListaActivoFijo= DeserializarListaActivosFijos();
             }
             else
             {

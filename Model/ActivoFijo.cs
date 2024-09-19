@@ -7,33 +7,21 @@ namespace Model
     public class ActivoFijo
     {
         [DataMember]
-        public string Codigo { get; private set; }
+        public string Codigo { get; set; }
         [DataMember]
-        public string Nombre { get; private set; }
+        public string Nombre { get; set; }
         [DataMember]
-        public double Precio { get; private set; }
+        public double Precio { get; set; }
         [DataMember]
-        public string Marca { get; private set; }
+        public string Marca { get;  set; }
         [DataMember]
-        public string Proveedor { get; private set; }
+        public string Proveedor { get;  set; }
         [DataMember]
-        public int NumeroExistentes { get; private set; }
+        public int NumeroExistentes { get;  set; }
         [DataMember]
-        public int VidaUtilAños { get; private set; }
+        public int VidaUtilAños { get;  set; }
         [DataMember]
-        public string Ubicacion { get; private set; }
-
-        public ActivoFijo(ActivoFijoBuilder builder)
-        {
-            Codigo = builder.Codigo;
-            Nombre = builder.Nombre;
-            Precio = builder.Precio;
-            Marca = builder.Marca;
-            Proveedor = builder.Proveedor;
-            NumeroExistentes = builder.NumeroExistentes;
-            VidaUtilAños = builder.VidaUtilAños;
-            Ubicacion = builder.Ubicacion;
-        }
+        public string Ubicacion { get;  set; }
 
         public override string ToString()
         {
