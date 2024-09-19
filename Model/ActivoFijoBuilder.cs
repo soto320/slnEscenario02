@@ -8,7 +8,7 @@ namespace Model
     public class ActivoFijoBuilder
     {
         [DataMember]
-        public ActivoFijo activoFijo { get; private set; }
+        private ActivoFijo activoFijo { get; private set; }
 
         public ActivoFijoBuilder(string codigo, string nombre, double precio)
         {
